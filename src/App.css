@@ -1,35 +1,81 @@
 .App {
-    width: 80%;
+    width: 100%;
     margin: 5rem auto;
 }
 
 .App > h1 {
     text-align: center;
+    background-color: #6495ED;
+    padding: 1rem 0;
+    color: #fff;
+
 }
 
 .file-reader-container {
-    margin: 0 auto;
+    margin: 4rem auto 4rem;
     width: 30rem;
+    background-color: #F0F8FF;
 }
 
-label.file-reader-input {
+label.file-reader-field, label.number-field {
     display: block;
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 30rem;
     clear: both;
     padding: 1rem;
 }
 
-label.file-reader-input > span {
+label.file-reader-field > span, label.number-field > span {
     width: 15rem;
     left: 0;
     position: relative;
     float: left;
 }
 
-label.file-reader-input > input {
+label.file-reader-field > input.file-reader {
     width: 15rem;
     right: 0;
     position: relative;
     float: right;
+}
+
+label.number-field > input.input-number {
+    width: 5rem;
+    padding: 1rem 0 1rem 1rem;
+}
+
+label.number-field > span {
+    padding: 1rem 0;
+}
+
+.get-code-button {
+    padding: 1rem;
+    background-color: darkgreen;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-weight: 700;
+    border-radius: .5rem;
+}
+.get-code-button:disabled {
+    background-color: darkgray;
+}
+
+.action-items {
+    width: 100%;
+    border-bottom: 0.2rem solid #eeeeee;
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+
+.App .results {
+    clear: both;
+    margin: 0 auto;
+    width: 80%;
+    padding: 2rem;
+    background-color: #D2B48C;
+    border-radius: 2rem;
+    font-family: sans-serif;
+    line-height: 2rem;
 }

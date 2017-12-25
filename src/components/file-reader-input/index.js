@@ -6,22 +6,26 @@ class FileReaderInput extends Component {
         this.reader = new FileReader();
         this.reader.onload = () => {
             props.onFileUpload(this.reader.result);
-        }
+        };
+        this.reader.onloadstart = () => props.setStatus(true);
+        this.reader.onloadend = () => props.setStatus(false);
     }
 
     render() {
         return <input type='file'
+                      className='file-reader'
                       ref={element => this.readerInput = element}
                     onChange={this._onInputChange}/>
     }
 
     _onInputChange = () => {
-        this.reader.readAsBinaryString(this.readerInput.files[0]);
+        this.readerInput.files[0] && this.reader.readAsBinaryString(this.readerInput.files[0]);
     }
 }
 
 FileReaderInput.propTypes = {
-    onFileUpload: func
+    onFileUpload: func,
+    setStatus: func
 };
 
 export default FileReaderInput;
