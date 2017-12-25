@@ -1,0 +1,35 @@
+.App {
+    width: 80%;
+    margin: 5rem auto;
+}
+
+.App > h1 {
+    text-align: center;
+}
+
+.file-reader-container {
+    margin: 0 auto;
+    width: 30rem;
+}
+
+label.file-reader-input {
+    display: block;
+    margin-top: 2rem;
+    width: 30rem;
+    clear: both;
+    padding: 1rem;
+}
+
+label.file-reader-input > span {
+    width: 15rem;
+    left: 0;
+    position: relative;
+    float: left;
+}
+
+label.file-reader-input > input {
+    width: 15rem;
+    right: 0;
+    position: relative;
+    float: right;
+}
