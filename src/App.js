@@ -62,6 +62,9 @@ class App extends Component {
 
     _getOriginalSourceCodeLocation = (e) => {
         e.preventDefault();
+        if (!this.state.sourceFileMapData) {
+            return;
+        }
         const sourceCodeMap = SourceMapConsumer(this.state.sourceFileMapData);
         const {lineNumber = 0, columnNumber = 0} = this.state;
         const originalPositionInCode = sourceCodeMap.originalPositionFor({
