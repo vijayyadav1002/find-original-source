@@ -5,10 +5,12 @@ const buildPath = appRoot.resolve('/build');
 
 app.use(expressStatic(buildPath));
 
-app.listen(process.env.PORT, (err) => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, (err) => {
     if (err) {
         console.error('Whoops!! something went wrong', err);
         return;
     }
-    console.info('Listening on port: 3000');
+    console.info(`Listening on port: ${PORT}`);
 });
