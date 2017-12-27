@@ -1,6 +1,13 @@
 const appRoot = require('app-root-path');
-const serve = require('serve');
-
+const app = require('express')();
+const {static} = require('express');
 const buildPath = appRoot.resolve('/build');
 
-serve(buildPath, {port: 3000});
+app.use(static(buildPath));
+app.listen(3000, (err) => {
+    if (err) {
+        console.error('Whoops!! something went wrong', err);
+        return;
+    }
+    console.info('Listening on port: 3000');
+});
