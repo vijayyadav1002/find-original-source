@@ -2,7 +2,7 @@ This project is about finding original source location when you get some error i
 are unable to find the exact location because the production file is minified.
 
 ## Pre-requisite: 
-* You should have original source code map with you. It code we generate with webpack or uglify js the tool 
+* You should have original source code map with you. It can be generated with webpack or uglify js tool 
 that you use for minification.
 * Upload Source Map in the app and put in the line number and column number of the error occurred in production.
 
