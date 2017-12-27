@@ -1,15 +1,13 @@
 const appRoot = require('app-root-path');
 const app = require('express')();
-// const {static} = require('express');
+const expressStatic = require('express').static;
 const buildPath = appRoot.resolve('/build');
 
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
-// app.use(static(buildPath));
 
-app.get('/', (req, res) => {
-    res.json({status: 'ok'});
-});
+app.use(expressStatic(buildPath));
+
 app.listen(DEFAULT_PORT, HOST, (err) => {
     if (err) {
         console.error('Whoops!! something went wrong', err);
