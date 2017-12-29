@@ -1,17 +1,19 @@
 import React from 'react';
 import {GoogleLogout} from 'react-google-login';
 
-const logoutSuccess = (response, setSignedIn) => {
+const logoutSuccess = (response, props) => {
     console.log(response);
-    setSignedIn(false);
+    props.setSignedIn(false);
+    props.setProfile({});
+    props.setToken({});
 };
 
-const Logout = ({setSignedIn}) => (
+const Logout = (props) => (
     <GoogleLogout
         tag='a'
         style={{background: '#d9534f'}}
         buttonText='Logout'
-        onLogoutSuccess={(response) =>logoutSuccess(response, setSignedIn)}>
+        onLogoutSuccess={(response) =>logoutSuccess(response, props)}>
     </GoogleLogout>
 );
 
