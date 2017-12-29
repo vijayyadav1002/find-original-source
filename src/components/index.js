@@ -5,6 +5,7 @@ import Header from './header';
 import Login from './login';
 import Logout from './logout';
 import If from './if';
+import User from './user';
 
 export {
     FileReaderInput,
@@ -13,5 +14,6 @@ export {
     Header,
     Login,
     Logout,
-    If
+    If,
+    User
 };

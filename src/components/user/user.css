@@ -1,0 +1,28 @@
+.user-container {
+    display: inline-block;
+}
+
+.user-container .user-image {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.user-container .user-image > img {
+    height: 2.875rem;
+}
+
+
+.user-container .user-display {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.user-container .user-name {
+    display: inline-block;
+    text-align: center;
+    padding: 0.875rem 1rem;
+    color: #ffffff;
+    float: right;
+    clear: both;
+    top: 0;
+}

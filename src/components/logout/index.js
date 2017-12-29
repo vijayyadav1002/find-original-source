@@ -1,5 +1,7 @@
 import React from 'react';
+import {func} from 'prop-types';
 import {GoogleLogout} from 'react-google-login';
+import './logout.css';
 
 const logoutSuccess = (response, props) => {
     console.log(response);
@@ -11,10 +13,16 @@ const logoutSuccess = (response, props) => {
 const Logout = (props) => (
     <GoogleLogout
         tag='a'
-        style={{background: '#d9534f'}}
+        className='logout'
         buttonText='Logout'
         onLogoutSuccess={(response) =>logoutSuccess(response, props)}>
     </GoogleLogout>
 );
+
+Logout.propTypes = {
+    setSignedIn: func,
+    setProfile: func,
+    setToken: func
+};
 
 export default Logout;

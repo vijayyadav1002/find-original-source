@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Login, Logout, If} from '../';
+import {Login, User, If} from '../';
 import './header.css';
 
 const Header = ({isSignedIn = false, ...otherProps} ) => (
@@ -15,8 +15,8 @@ const Header = ({isSignedIn = false, ...otherProps} ) => (
                     </li>
                 </If>
                 <If condition={isSignedIn}>
-                    <li className='logout'>
-                        <Logout {...otherProps}/>
+                    <li className='user'>
+                        <User {...otherProps}/>
                     </li>
                 </If>
             </ul>
