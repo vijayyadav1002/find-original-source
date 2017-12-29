@@ -62,6 +62,9 @@ class App extends Component {
 
     _getOriginalSourceCodeLocation = (e) => {
         e.preventDefault();
+        console.log(this.props.signIn);
+        window.props = this.props;
+        // this.props.actions.setSignedIn(!this.props.signIn.get('isSignedIn'));
         if (!this.state.sourceFileMapData) {
             return;
         }
