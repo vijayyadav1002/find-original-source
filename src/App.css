@@ -12,7 +12,7 @@
 }
 
 .file-reader-container {
-    margin: 4rem auto 4rem;
+    margin: 4rem auto 1rem;
     width: 30rem;
     background-color: #F0F8FF;
 }
@@ -38,26 +38,6 @@ label.number-field > input.input-number {
     padding: 1rem 0 1rem 1rem;
 }
 
-.get-code-button {
-    padding: 1rem;
-    background-color: darkgreen;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-weight: 700;
-    border-radius: .5rem;
-}
-.get-code-button:disabled {
-    background-color: darkgray;
-}
-
-.action-items {
-    width: 100%;
-    border-bottom: 0.2rem solid #eeeeee;
-    height: 4rem;
-    margin-bottom: 2rem;
-}
 
 .App .results {
     clear: both;

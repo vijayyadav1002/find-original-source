@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FileReaderInput, InputNumber} from './components';
+import {SourceCodeOutput, FormActionControls, FormFields} from './components';
 import {SourceMapConsumer} from 'source-map';
 import './App.css';
 
@@ -17,48 +17,25 @@ class App extends Component {
     }
 
     render() {
-        const {column = '', line = '', name = '', source = ''} = this.state.originalPositionInCode;
         return (
             <div className='App'>
                 <h1>Find Original Source Code from Source Map</h1>
                 <form onSubmit={this._getOriginalSourceCodeLocation}>
-                    <div className='file-reader-container'>
-                        <label className='file-reader-field'>
-                            <span>Working File Name:</span>
-                            <input type='text'
-                                   className='file-text'
-                                   value={this.state.fileName}
-                                   onChange={event => this._onFileNameChange(event)}/>
-                        </label>
-                        <label className='file-reader-field'>
-                            <span>Upload Source Map File:</span>
-                            <FileReaderInput
-                                loadStatus={this.state.loadStatus}
-                                onFileUpload={this._onFileUploadForSourceMap}
-                                setStatus={this._setLoadStatus}/>
-                        </label>
-                        <label className='number-field'>
-                            <span>Line Number:</span>
-                            <InputNumber onChange={this._updateLineNumber}/>
-                        </label>
-                        <label className='number-field'>
-                            <span>Column Number:</span>
-                            <InputNumber onChange={this._updateColumnNumber}/>
-                        </label>
-                    </div>
-                        <div className='action-items'>
-                            <button className='get-code-button'
-                                    disabled={this.state.loadStatus}
-                                    type='submit'>Get Original Code Location</button>
-                        </div>
+                    <FormFields
+                        fileName={this.state.fileName}
+                        loadStatus={this.state.loadStatus}
+                        onFileNameChange={this._onFileNameChange}
+                        onFileUpload={this._onFileUploadForSourceMap}
+                        onUpdateLineNumber={this._updateLineNumber}
+                        onUpdateColumnNumber={this._updateColumnNumber}
+                        setStatus={this._setLoadStatus}
+                    />
+                    <FormActionControls
+                        sourceFileMapData={this.state.sourceFileMapData}
+                        loadStatus={this.state.loadStatus}
+                    />
                 </form>
-                <div className='results'>
-                    <div>Source Code Details:</div>
-                    <div>{`Column: ${column}`}</div>
-                    <div>{`Line: ${line}`}</div>
-                    <div>{`name: ${name}`}</div>
-                    <div>{`source file: ${source}`}</div>
-                </div>
+                <SourceCodeOutput {...this.state.originalPositionInCode}/>
             </div>
         );
     }
@@ -89,7 +66,7 @@ class App extends Component {
     _onFileNameChange = _event => {
         const value = _event.target.value || '';
         this.setState(oldState => ({...oldState, fileName: value }));
-    }
+    };
 }
 
 export default App;

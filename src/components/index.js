@@ -6,6 +6,9 @@ import Login from './login';
 import Logout from './logout';
 import If from './if';
 import User from './user';
+import SourceCodeOutput from './source-code-output';
+import FormActionControls from './form-action-controls';
+import FormFields from './form-fields';
 
 export {
     FileReaderInput,
@@ -15,5 +18,8 @@ export {
     Login,
     Logout,
     If,
-    User
+    User,
+    SourceCodeOutput,
+    FormActionControls,
+    FormFields
 };

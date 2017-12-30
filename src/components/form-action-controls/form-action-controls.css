@@ -1,0 +1,37 @@
+.control-buttons {
+    position: relative;
+    width: 30rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.control-buttons .save-button:disabled {
+    background-color: darkgrey;
+}
+.control-buttons .save-button {
+    margin-left: 1rem;
+    padding: 1rem;
+    color: #fff;
+    font-weight: 700;
+    background-color: darkred;
+    width: 8rem;
+}
+
+.get-code-button {
+    padding: 1rem;
+    background-color: darkgreen;
+    color: #fff;
+    font-weight: 700;
+}
+
+.get-code-button:disabled {
+    background-color: darkgray;
+}
+
+.action-items {
+    width: 100%;
+    border-bottom: 0.2rem solid #eeeeee;
+    height: 4rem;
+    margin-bottom: 2rem;
+}
