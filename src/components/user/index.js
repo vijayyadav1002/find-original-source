@@ -7,7 +7,7 @@ import './user.css';
 const User = props => (
     <div className='user-container'>
         <div className='user-display'>
-            <div className='user-image'><img src={props.profile.get('imageUrl')} title='user image'/></div>
+            <div className='user-image'><img src={props.profile.get('imageUrl')} alt='user portrait'/></div>
             <div className='user-name'>{props.profile.get('name')}</div>
         </div>
         <Logout {...props}/>

@@ -11,7 +11,8 @@ class App extends Component {
             lineNumber: 0,
             originalPositionInCode: {},
             columnNumber: 0,
-            loadStatus: false
+            loadStatus: false,
+            fileName: ''
         };
     }
 
@@ -23,8 +24,16 @@ class App extends Component {
                 <form onSubmit={this._getOriginalSourceCodeLocation}>
                     <div className='file-reader-container'>
                         <label className='file-reader-field'>
+                            <span>Working File Name:</span>
+                            <input type='text'
+                                   className='file-text'
+                                   value={this.state.fileName}
+                                   onChange={event => this._onFileNameChange(event)}/>
+                        </label>
+                        <label className='file-reader-field'>
                             <span>Upload Source Map File:</span>
                             <FileReaderInput
+                                loadStatus={this.state.loadStatus}
                                 onFileUpload={this._onFileUploadForSourceMap}
                                 setStatus={this._setLoadStatus}/>
                         </label>
@@ -54,7 +63,7 @@ class App extends Component {
         );
     }
 
-    _onFileUploadForSourceMap = sourceFileMapData => this.setState(oldState => ({...oldState, sourceFileMapData}));
+    _onFileUploadForSourceMap = ({sourceFileMapData, fileName}) => this.setState(oldState => ({...oldState, sourceFileMapData, fileName}));
 
     _setLoadStatus = (loadStatus = false) => {
         this.setState(oldState => ({...oldState, loadStatus}));
@@ -62,9 +71,6 @@ class App extends Component {
 
     _getOriginalSourceCodeLocation = (e) => {
         e.preventDefault();
-        console.log(this.props.signIn);
-        window.props = this.props;
-        // this.props.actions.setSignedIn(!this.props.signIn.get('isSignedIn'));
         if (!this.state.sourceFileMapData) {
             return;
         }
@@ -79,6 +85,11 @@ class App extends Component {
     _updateLineNumber = lineNumber => this.setState(oldState => ({...oldState, lineNumber}));
 
     _updateColumnNumber = columnNumber => this.setState(oldState => ({...oldState, columnNumber}));
+
+    _onFileNameChange = _event => {
+        const value = _event.target.value || '';
+        this.setState(oldState => ({...oldState, fileName: value }));
+    }
 }
 
 export default App;
