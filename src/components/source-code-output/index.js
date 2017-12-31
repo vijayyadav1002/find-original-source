@@ -1,5 +1,5 @@
 import React from 'react';
-import {string} from 'prop-types';
+import {string, number} from 'prop-types';
 
 const SourceCodeOutput = ({column = '', line = '', name = '', source = ''}) => (
     <div className='results'>
@@ -12,8 +12,8 @@ const SourceCodeOutput = ({column = '', line = '', name = '', source = ''}) => (
 );
 
 SourceCodeOutput.propTypes = {
-    column: string,
-    line: string,
+    column: number,
+    line: number,
     name: string,
     source: string
 };

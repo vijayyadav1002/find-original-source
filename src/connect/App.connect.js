@@ -1,12 +1,15 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setSignedIn} from "../actions/index";
+import {setSignedIn, clearCurrentSourceCode} from "../actions/index";
 import App from '../App';
 
-const mapStateToProps = (state) => ({ signIn: state.signIn });
+const mapStateToProps = (state) => ({isSignedIn: state.signIn.get('isSignedIn')});
 
 const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators({setSignedIn}, dispatch) }
+    return bindActionCreators({
+        setSignedIn,
+        clearCurrentSourceCode
+    }, dispatch)
 };
 
 export default connect(

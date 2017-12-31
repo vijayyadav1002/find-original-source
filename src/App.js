@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {SourceCodeOutput, FormActionControls, FormFields} from './components';
+import {func, bool} from 'prop-types';
+import {SourceCodeOutput, FormFields} from './components';
+import FormActionControls from './connect/form-action-controls.connect';
 import {SourceMapConsumer} from 'source-map';
 import './App.css';
 
@@ -31,6 +33,7 @@ class App extends Component {
                         setStatus={this._setLoadStatus}
                     />
                     <FormActionControls
+                        fileName={this.state.fileName}
                         sourceFileMapData={this.state.sourceFileMapData}
                         loadStatus={this.state.loadStatus}
                     />
@@ -40,7 +43,10 @@ class App extends Component {
         );
     }
 
-    _onFileUploadForSourceMap = ({sourceFileMapData, fileName}) => this.setState(oldState => ({...oldState, sourceFileMapData, fileName}));
+    _onFileUploadForSourceMap = ({sourceFileMapData, fileName}) => {
+        this.props.clearCurrentSourceCode();
+        this.setState(oldState => ({...oldState, sourceFileMapData, fileName}))
+    };
 
     _setLoadStatus = (loadStatus = false) => {
         this.setState(oldState => ({...oldState, loadStatus}));
@@ -68,5 +74,11 @@ class App extends Component {
         this.setState(oldState => ({...oldState, fileName: value }));
     };
 }
+
+App.propTypes = {
+    isSignedIn: bool,
+    setSignedIn: func,
+    clearCurrentSourceCode: func
+};
 
 export default App;
