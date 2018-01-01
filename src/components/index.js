@@ -9,6 +9,7 @@ import User from './user';
 import SourceCodeOutput from './source-code-output';
 import FormActionControls from './form-action-controls';
 import FormFields from './form-fields';
+import ManageSourceCode from './manage-source-code';
 
 export {
     FileReaderInput,
@@ -21,5 +22,6 @@ export {
     User,
     SourceCodeOutput,
     FormActionControls,
-    FormFields
+    FormFields,
+    ManageSourceCode
 };

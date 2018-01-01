@@ -6,8 +6,11 @@ import './header.css';
 const Header = ({isSignedIn = false, ...otherProps} ) => (
     <header>
         <nav>
-            <ul>
+            <ul className='header'>
                 <li><Link to='/'>Home</Link></li>
+                <If condition={isSignedIn}>
+                    <li><Link to='/manage'>Manage Saved Source Code</Link></li>
+                </If>
                 <li><Link to='/about'>About</Link></li>
                 <If condition={!isSignedIn}>
                     <li className='login'>

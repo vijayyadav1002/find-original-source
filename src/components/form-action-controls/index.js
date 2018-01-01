@@ -28,6 +28,7 @@ class FormActionControls extends Component {
         !this.props.isSignedIn
         || this.props.loadStatus
         || !this.props.sourceFileMapData
+        || !this.props.fileName
     );
 
     _save = () => {

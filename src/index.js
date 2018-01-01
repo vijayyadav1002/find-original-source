@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './connect/App.connect';
-import Header from './connect/header.connect';
+import {App, Header, ManageSourceCode} from './connect';
 import {About} from './components';
 import registerServiceWorker from './registerServiceWorker';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
@@ -13,6 +12,7 @@ const AppRouter = () => (
     <Switch>
         <Route exact path='/' component={App}/>
         <Route path='/about' component={About}/>
+        <Route path='/manage' component={ManageSourceCode}/>
     </Switch>
 );
 
